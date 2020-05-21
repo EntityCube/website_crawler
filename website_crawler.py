@@ -21,11 +21,10 @@ def main():
         data = []
       
         for link in collect_links(url):
-            url = link
             data.append(link)
-            # for link in collect_links(url):
-                # url = link
-                # data.append(link)
+            url = link
+            for link in collect_links(url):
+                data.append(link)
 
 
         data = clean_data(data, url)
