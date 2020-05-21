@@ -1,7 +1,7 @@
 # Website Crawler
 view a website tree structure
 
-Example:
+## Example:
 ```
 >>> python website_crawler.py www.duckduckgo.com -a -l -m -s
 Found 16 links on https://www.duckduckgo.com
@@ -32,10 +32,10 @@ Found 16 links on https://www.duckduckgo.com
     └── duckduckgo.com
 ```
 
-Syntax:
+## Syntax:
 website_crawler.py <url> <args>
 
-Arguments:
+## Arguments:
 -a   find links
 -s   find scripts
 -m   find medias
