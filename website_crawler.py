@@ -53,7 +53,7 @@ def help_msg():
         print('website_crawler.py <url> <args>')
         print('Arguments:')
         print('-a   find links')
-        print('-s   find scripts and links')
+        print('-s   find scripts')
         print('-c   find stylesheets')
         print('-m   find medias')
 
