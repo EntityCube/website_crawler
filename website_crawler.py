@@ -14,7 +14,7 @@ if not url[0:8].lower() == "https://" or url[0:7].lower() == "http://":
 
 page = requests.get(url)    
 page_data = page.text
-soup = BeautifulSoup(page_data, features="lxml")
+soup = BeautifulSoup(page_data, 'html.parser')
 
 links = []
 
