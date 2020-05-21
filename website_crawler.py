@@ -30,11 +30,14 @@ time.sleep(1)
 def clean_data(data):
     data = list(filter(None, data))
     for i, link in enumerate(data):
-        data[i] = list(filter(None, link.split('/')))
+
+        if not (data[i][0:8] == 'https://' or data[i][0:7] == 'http://'):
+            data[i] = url+data[i]
+
+        data[i] = list(filter(None, data[i].split('/')))
         data[i].insert(0, '^')
 
-        if not (data[i][1] == 'https:' or data[i][1] == 'http:'):
-            data[i].insert(1, url)
+
     data = list(filter(None, data))
     data.sort(key=len, reverse=True)
     return data
