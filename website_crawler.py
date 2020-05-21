@@ -72,7 +72,8 @@ def crawl(soup, url, args):
 
     if '-a' in args:
         for link in soup.find_all('a'):
-            links.append(link.get('href'))
+            if(link.get('href') != 'javascript:void(0)'):
+                links.append(link.get('href'))
 
     if '-s' in args:
         for link in soup.find_all('script'):
