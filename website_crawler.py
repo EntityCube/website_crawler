@@ -21,7 +21,6 @@ soup = BeautifulSoup(page_data, 'html.parser')
 
 for link in soup.find_all('a'):
     links.append(link.get('href'))
-    print(link.get('href'))
 
 links = list(filter(None, links))
 print(f'Found {len(links)} links on {url}')
@@ -66,4 +65,3 @@ if len(data):
 
     for pre, fill, node in RenderTree(sitetree):
         print(f"{pre}{node.name}")
-    print(data)
