@@ -1,38 +1,96 @@
 # pip3 install anytree
 # pip3 install beautifulsoup4
-
 from anytree import Node, RenderTree
 from bs4 import BeautifulSoup, SoupStrainer
+from urllib.parse import urljoin
 import requests
 import time
 import sys
 
-url = sys.argv[1]
-links = []
-deep = 1
 
-# Add https if its not in url input
-if not url[0:8].lower() == "https://" or url[0:7].lower() == "http://":
-    url = "https://"+url
+def main():
 
-page = requests.get(url)    
-page_data = page.text
-soup = BeautifulSoup(page_data, 'html.parser')
+    if '-h' in sys.argv or '--help' in sys.argv:
+        help_msg()
+    elif len(sys.argv) <= 2:
+        help_msg()
+    else:
+        links = []
+        url = sys.argv[1]
+        url = url_fixer(url)
+        page = requests.get(url)    
+        page_data = page.text
+        soup = BeautifulSoup(page_data, 'html.parser')
+        args = sys.argv 
+        links = crawl(soup, url, args)
+        time.sleep(1)
+        data = links
+        data = clean_data(data, url)
 
-for link in soup.find_all('a'):
-    links.append(link.get('href'))
+        if len(data):
+            sitetree = list_to_anytree(data)
 
-links = list(filter(None, links))
-print(f'Found {len(links)} links on {url}')
+            for pre, fill, node in RenderTree(sitetree):
+                print(f"{pre}{node.name}")
 
-time.sleep(1)
 
-def clean_data(data):
+def help_msg():
+        print('Help')
+        print('Syntax:')
+        print('website_crawler.py <url> <args>')
+        print('Arguments:')
+        print('-a   find links')
+        print('-s   find scripts and links')
+        print('-c   find stylesheets')
+        print('-m   find medias')
+
+
+def url_fixer(url):
+    """Add https if its not in url input"""
+    if not url[0:8].lower() == "https://" or url[0:7].lower() == "http://":
+        url = "https://"+url
+    return url
+
+
+def crawl(soup, url, args):
+    links = []
+
+    if '-a' in args:
+        for link in soup.find_all('a'):
+            links.append(link.get('href'))
+
+    if '-s' in args:
+        for link in soup.find_all('script'):
+            links.append(link.get('src'))
+
+    if '-m' in args:
+        tags = ['img','src','source','object','iframe']
+        for tag in tags:
+            for link in soup.find_all(tag):
+                links.append(link.get('src'))
+                links.append(link.get('data'))
+
+        for link in soup.find_all('audio'):
+            links.append(link.get('src'))
+
+        for link in soup.find_all('source'):
+            links.append(link.get('src'))
+
+    if '-m' in args:
+        for link in soup.find_all('link'):
+            links.append(link.get('href'))
+
+    links = list(filter(None, links))
+    print(f'Found {len(links)} links on {url}')
+    return(links)
+
+
+def clean_data(data, url):
     data = list(filter(None, data))
     for i, link in enumerate(data):
 
         if not (data[i][0:8] == 'https://' or data[i][0:7] == 'http://'):
-            data[i] = url+data[i]
+            data[i] = urljoin(url, data[i])
 
         data[i] = list(filter(None, data[i].split('/')))
         data[i].insert(0, '^')
@@ -42,8 +100,6 @@ def clean_data(data):
     data.sort(key=len, reverse=True)
     return data
 
-data = links
-data = clean_data(data)
 
 def list_to_anytree(lst):
     root_name = lst[0][0]
@@ -60,8 +116,4 @@ def list_to_anytree(lst):
     return root_node
 
 
-if len(data):
-    sitetree = list_to_anytree(data)
-
-    for pre, fill, node in RenderTree(sitetree):
-        print(f"{pre}{node.name}")
+main()
