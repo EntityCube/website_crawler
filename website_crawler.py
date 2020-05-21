@@ -23,6 +23,29 @@ def main():
         for link in collect_links(url):
             url = link
             data.append(link)
+            # for link in collect_links(url):
+                # url = link
+                # data.append(link)
+
+
+        data = clean_data(data, url)
+
+        if len(data):
+            sitetree = list_to_anytree(data)
+
+            time.sleep(1)
+            for pre, fill, node in RenderTree(sitetree):
+                print(f"{pre}{node.name}")
+
+
+def collect_links(url):
+        links = []
+        page = requests.get(url)    
+        page_data = page.text
+        soup = BeautifulSoup(page_data, 'html.parser')
+        args = sys.argv 
+        links = crawl(soup, url, args)
+
 
         data = clean_data(data, url)
 
@@ -72,7 +95,9 @@ def crawl(soup, url, args):
 
     if '-a' in args:
         for link in soup.find_all('a'):
-            if(link.get('href') != 'javascript:void(0)'):
+            if ':' in link.get('href') or 'tel:' in link.get('href') or 'javascript:' in link.get('href'):
+                links.append(url+link.get('href'))
+            else:
                 links.append(link.get('href'))
 
     if '-s' in args:
