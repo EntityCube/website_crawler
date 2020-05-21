@@ -1,11 +1,14 @@
 # pip3 install anytree
 # pip3 install beautifulsoup4
 from anytree import Node, RenderTree
+from anytree.exporter import DotExporter
 from bs4 import BeautifulSoup, SoupStrainer
 from urllib.parse import urljoin
+from slugify import slugify
 import requests
 import time
 import sys
+import re
 
 
 def main():
@@ -27,6 +30,10 @@ def main():
 
         if len(data):
             sitetree = list_to_anytree(data)
+        
+        if '-o' in sys.argv:
+            filename = slugify(url)
+            DotExporter(sitetree, nodeattrfunc=lambda node: "shape=box").to_picture(f'{filename}.png')
 
             for pre, fill, node in RenderTree(sitetree):
                 print(f"{pre}{node.name}")
@@ -55,6 +62,7 @@ def help_msg():
         print('-s   find scripts')
         print('-m   find medias')
         print('-l   find stylesheets')
+        print('-o   output image')
 
 
 def url_fixer(url):
