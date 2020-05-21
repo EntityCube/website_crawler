@@ -36,8 +36,10 @@ Found 16 links on https://www.duckduckgo.com
 website_crawler.py <url> <args>
 
 ## Arguments:
+```
 -a   find links
 -s   find scripts
 -m   find medias
 -l   find stylesheets
 -o   output image
+```
