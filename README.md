@@ -2,10 +2,11 @@
 view a website tree structure
 
 
-# Example:
->>> python website_crawler.py www.duckduckgo.com -a -l -m -s
+Example:
+python website_crawler.py www.duckduckgo.com -a -l -m -s
 
 Found 16 links on https://www.duckduckgo.com
+```
 ^
 └── https:
     ├── www.duckduckgo.com
@@ -31,11 +32,12 @@ Found 16 links on https://www.duckduckgo.com
     │   ├── favicon.ico
     │   └── manifest.json
     └── duckduckgo.com
+```
 
-# Syntax:
+Syntax:
 website_crawler.py <url> <args>
 
-# Arguments:
+Arguments:
 -a   find links
 -s   find scripts
 -m   find medias
