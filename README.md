@@ -1,5 +1,5 @@
 # Website Crawler
-view a website tree structure
+view tree sturcture of websites
 
 ## Example:
 ```
