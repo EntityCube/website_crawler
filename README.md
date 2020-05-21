@@ -1,12 +1,10 @@
 # website_tree_crawler
 view a website tree structure
 
-
 Example:
-python website_crawler.py www.duckduckgo.com -a -l -m -s
-
-Found 16 links on https://www.duckduckgo.com
 ```
+>>> python website_crawler.py www.duckduckgo.com -a -l -m -s
+Found 16 links on https://www.duckduckgo.com
 ^
 └── https:
     ├── www.duckduckgo.com
