@@ -29,8 +29,9 @@ def clean_data(data):
     data = list(filter(None, data))
     for i, link in enumerate(data):
         data[i] = list(filter(None, link.split('/')))
-        data[i].insert(0, 'site')
+        data[i].insert(0, '^')
     data = list(filter(None, data))
+    data.sort(key=len, reverse=True)
     return data
 
 data = links
