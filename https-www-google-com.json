@@ -1,0 +1,195 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "googlelogo_white_background_color_272x92dp.png"
+                            }
+                          ],
+                          "name": "1x"
+                        }
+                      ],
+                      "name": "googlelogo"
+                    }
+                  ],
+                  "name": "branding"
+                }
+              ],
+              "name": "images"
+            },
+            {
+              "name": "setprefdomain?prefdom=IN&prev=https:"
+            },
+            {
+              "name": "preferences?hl=en"
+            },
+            {
+              "name": "advanced_search?hl=en-IN&authuser=0"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=hi&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAU"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=bn&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAY"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=te&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAc"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=mr&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAg"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=ta&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAk"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=gu&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAo"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=kn&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAs"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=ml&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCAw"
+            },
+            {
+              "name": "setprefs?sig=0_9PBCSuUPn1YFFcCIbKAcagMAaqA%3D&hl=pa&source=homepage&sa=X&ved=0ahUKEwj4_7THy8XpAhVU4zgGHVmAATgQ2ZgBCA0"
+            }
+          ],
+          "name": "www.google.com"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "products?tab=wh"
+                        }
+                      ],
+                      "name": "about"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "privacy"
+                        },
+                        {
+                          "name": "terms"
+                        }
+                      ],
+                      "name": "policies"
+                    },
+                    {
+                      "name": "ads"
+                    },
+                    {
+                      "name": "about.html"
+                    }
+                  ],
+                  "name": "en"
+                }
+              ],
+              "name": "intl"
+            },
+            {
+              "name": "&sig=K_viNSDC4tjZxQr0RCXlik5OaY9Ok%3D"
+            },
+            {
+              "children": [
+                {
+                  "name": "optout?hl=en"
+                }
+              ],
+              "name": "history"
+            },
+            {
+              "name": "imghp?hl=en&tab=wi"
+            },
+            {
+              "name": "services"
+            }
+          ],
+          "name": "www.google.co.in"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "?tab=wm"
+                }
+              ],
+              "name": "mail"
+            }
+          ],
+          "name": "mail.google.com"
+        },
+        {
+          "children": [
+            {
+              "name": "ServiceLogin?hl=en&passive=true&continue=https:"
+            }
+          ],
+          "name": "accounts.google.com"
+        },
+        {
+          "children": [
+            {
+              "name": "maps?hl=en&tab=wl"
+            }
+          ],
+          "name": "maps.google.co.in"
+        },
+        {
+          "children": [
+            {
+              "name": "?hl=en&tab=w8"
+            }
+          ],
+          "name": "play.google.com"
+        },
+        {
+          "children": [
+            {
+              "name": "?gl=IN&tab=w1"
+            }
+          ],
+          "name": "www.youtube.com"
+        },
+        {
+          "children": [
+            {
+              "name": "nwshp?hl=en&tab=wn"
+            }
+          ],
+          "name": "news.google.co.in"
+        },
+        {
+          "children": [
+            {
+              "name": "?tab=wo"
+            }
+          ],
+          "name": "drive.google.com"
+        }
+      ],
+      "name": "https:"
+    },
+    {
+      "name": "http:"
+    }
+  ],
+  "name": "^"
+}

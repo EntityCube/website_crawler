@@ -31,9 +31,9 @@ def main():
         if len(data):
             sitetree = list_to_anytree(data)
         
-        if '-o' in sys.argv:
-            filename = slugify(url)
-            DotExporter(sitetree, nodeattrfunc=lambda node: "shape=box").to_picture(f'{filename}.png')
+            if '-o' in sys.argv:
+                filename = slugify(url)
+                DotExporter(sitetree, nodeattrfunc=lambda node: "shape=box").to_picture(f'{filename}.png')
 
             for pre, fill, node in RenderTree(sitetree):
                 print(f"{pre}{node.name}")
