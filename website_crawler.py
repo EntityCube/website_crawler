@@ -5,8 +5,10 @@ from anytree import Node, RenderTree
 from bs4 import BeautifulSoup, SoupStrainer
 import requests
 import time
+import sys
 
-url = input("url: ")
+url = sys.argv[1]
+links = []
 deep = 1
 
 # Add https if its not in url input
@@ -17,12 +19,11 @@ page = requests.get(url)
 page_data = page.text
 soup = BeautifulSoup(page_data, 'html.parser')
 
-links = []
-
 for link in soup.find_all('a'):
     links.append(link.get('href'))
+    print(link.get('href'))
 
-
+links = list(filter(None, links))
 print(f'Found {len(links)} links on {url}')
 
 time.sleep(1)
@@ -44,7 +45,6 @@ def clean_data(data):
 
 data = links
 data = clean_data(data)
-
 
 def list_to_anytree(lst):
     root_name = lst[0][0]
