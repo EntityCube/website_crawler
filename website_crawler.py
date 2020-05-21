@@ -28,7 +28,6 @@ def main():
         if len(data):
             sitetree = list_to_anytree(data)
 
-            time.sleep(1)
             for pre, fill, node in RenderTree(sitetree):
                 print(f"{pre}{node.name}")
 
@@ -72,7 +71,7 @@ def crawl(soup, url, args):
         for link in soup.find_all('a'):
             if link.get('href') is not None:
                 if ':' in link.get('href') or 'tel:' in link.get('href') or 'javascript:' in link.get('href'):
-                    links.append(url+link.get('href'))
+                    links.append(urljoin(url, link.get('href')))
                 else:
                     links.append(link.get('href'))
 
@@ -99,6 +98,7 @@ def crawl(soup, url, args):
 
     links = list(filter(None, links))
     print(f'Found {len(links)} links on {url}')
+    time.sleep(1)
     return(links)
 
 
