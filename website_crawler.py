@@ -15,23 +15,38 @@ def main():
     elif len(sys.argv) <= 2:
         help_msg()
     else:
-        links = []
+        
         url = sys.argv[1]
         url = url_fixer(url)
-        page = requests.get(url)    
-        page_data = page.text
-        soup = BeautifulSoup(page_data, 'html.parser')
-        args = sys.argv 
-        links = crawl(soup, url, args)
-        time.sleep(1)
-        data = links
+        data = []
+      
+        for link in collect_links(url):
+            url = link
+            data.append(link)
+
         data = clean_data(data, url)
 
         if len(data):
             sitetree = list_to_anytree(data)
 
+            time.sleep(1)
             for pre, fill, node in RenderTree(sitetree):
                 print(f"{pre}{node.name}")
+
+
+def collect_links(url):
+        links = []
+        page = requests.get(url)    
+        page_data = page.text
+        soup = BeautifulSoup(page_data, 'html.parser')
+        args = sys.argv 
+        links = crawl(soup, url, args)
+
+        for i, link in enumerate(links):
+            if not (links[i][0:8] == 'https://' or links[i][0:7] == 'http://'):
+                links[i] = urljoin(url, links[i])
+
+        return links
 
 
 def help_msg():
@@ -88,7 +103,6 @@ def crawl(soup, url, args):
 def clean_data(data, url):
     data = list(filter(None, data))
     for i, link in enumerate(data):
-
         if not (data[i][0:8] == 'https://' or data[i][0:7] == 'http://'):
             data[i] = urljoin(url, data[i])
 
