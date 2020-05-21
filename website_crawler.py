@@ -54,8 +54,8 @@ def help_msg():
         print('Arguments:')
         print('-a   find links')
         print('-s   find scripts')
-        print('-c   find stylesheets')
         print('-m   find medias')
+        print('-l   find stylesheets')
 
 
 def url_fixer(url):
@@ -93,7 +93,7 @@ def crawl(soup, url, args):
         for link in soup.find_all('source'):
             links.append(link.get('src'))
 
-    if '-m' in args:
+    if '-l' in args:
         for link in soup.find_all('link'):
             links.append(link.get('href'))
 
