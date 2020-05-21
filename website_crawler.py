@@ -103,8 +103,6 @@ def crawl(soup, url, args):
 def clean_data(data, url):
     data = list(filter(None, data))
     for i, link in enumerate(data):
-        if not (data[i][0:8] == 'https://' or data[i][0:7] == 'http://'):
-            data[i] = urljoin(url, data[i])
 
         data[i] = list(filter(None, data[i].split('/')))
         data[i].insert(0, '^')
