@@ -1,0 +1,12 @@
+INFO: scrcpy 1.13 <https://github.com/Genymobile/scrcpy>
+INFO: scrcpy 1.13 <https://github.com/Genymobile/scrcpy>
+/usr/share/scrcpy/scrcpy-server: 1 file pushed, 0 skipped. 0.4 MB/s (27694 bytes in 0.070s)
+adb: error: more than one device/emulator
+ERROR: "adb reverse" returned with value 1
+WARN: 'adb reverse' failed, fallback to 'adb forward'
+27183
+[server] INFO: Device: samsung SM-J710F (Android 8.1.0)
+INFO: Renderer: opengl
+INFO: OpenGL version: 4.5 (Compatibility Profile) Mesa 20.0.6
+INFO: Trilinear filtering enabled
+INFO: Initial texture: 720x1280

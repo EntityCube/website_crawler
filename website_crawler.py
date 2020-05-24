@@ -21,6 +21,7 @@ def main():
         
         url = sys.argv[1]
         url = url_fixer(url)
+
         data = []
      
         for link in collect_links(url):
@@ -37,6 +38,13 @@ def main():
 
             for pre, fill, node in RenderTree(sitetree):
                 print(f"{pre}{node.name}")
+
+
+def url_fixer(url):
+    if not re.match('(?:http|ftp|https)://', url):
+        return 'http://{}'.format(url)
+    return url
+
 
 def collect_links(url):
         links = []
@@ -63,13 +71,6 @@ def help_msg():
         print('-m   find medias')
         print('-l   find stylesheets')
         print('-o   output image')
-
-
-def url_fixer(url):
-    """Add https if its not in url input"""
-    if not url[0:8].lower() == "https://" or url[0:7].lower() == "http://":
-        url = "https://"+url
-    return url
 
 
 def crawl(soup, url, args):
