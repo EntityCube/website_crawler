@@ -40,6 +40,7 @@ def main():
                 print(f"{pre}{node.name}")
 
 
+
 def url_fixer(url):
     if not re.match('(?:http|ftp|https)://', url):
         return 'http://{}'.format(url)
@@ -84,6 +85,7 @@ def crawl(soup, url, args):
                 else:
                     links.append(link.get('href'))
 
+
     if '-s' in args:
         for link in soup.find_all('script'):
             links.append(link.get('src'))
@@ -95,15 +97,10 @@ def crawl(soup, url, args):
                 links.append(link.get('src'))
                 links.append(link.get('data'))
 
-        for link in soup.find_all('audio'):
-            links.append(link.get('src'))
-
-        for link in soup.find_all('source'):
-            links.append(link.get('src'))
 
     if '-l' in args:
         for link in soup.find_all('link'):
-            links.append(link.get('href'))
+                links.append(link.get('href'))
 
     links = list(filter(None, links))
     print(f'Found {len(links)} links on {url}')
